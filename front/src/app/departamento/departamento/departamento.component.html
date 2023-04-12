@@ -1,0 +1,62 @@
+<div class="container">
+    <form>
+      <div class="card-header">
+        <div class="row">
+          <div class="col-8">Departamento</div>
+          <div class="col-4">
+            <button type="button" class="btn btn-primary" (click)="adicionar()">
+              Adicionar
+            </button>
+            <button type="button" class="btn btn-warning" (click)="alterar()">
+              Alterar
+            </button>
+            <button type="button" class="btn btn-danger" (click)="excluir()">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-primary" role="alert">
+        {{ mens }}
+      </div>
+  
+      <div class="card-body">
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="inputCodigo">Código</label>
+            <input type="number" class="form-control" name="inputCodigo" [(ngModel)]="obj.id" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" name="inputNome" [(ngModel)]="obj.nome" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputLocal">Local</label>
+            <input type="text" class="form-control" name="inputLocal" [(ngModel)]="obj.local" />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputDataAbertura">Data Abertura</label>
+            <input type="date" class="form-control" name="inputDataAbertura" [(ngModel)]="obj.dataAbertura" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Local</th>
+            <th scope="col">Data Abertura</th>
+            <th scope="col">...</th>
+            <tr *ngFor="let p of lista">
+              <td>{{p.id}}</td>
+              <td>{{p.nome}}</td>
+              <td>{{p.local}}</td>
+              <td>{{p.dataAbertura}}</td>
+              <td><button type="button" class="btn btn-primary btn-sm" (click)="carregarDados(p)">Carregar</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
